@@ -37,7 +37,12 @@ async function run() {
       res.send(result)
     })
 
-
+    app.get("/shoes", async(req, res) => {
+      const shoesData = shoeCollection.find();
+      const result = await shoesData.toArray()
+      console.log(result)
+      res.send(result)
+    })
     console.log("Pinged your deployment. You successfully connected to MongoDB!");
   } finally {
     // await client.close();
